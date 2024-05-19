@@ -1,4 +1,4 @@
-
+#das ist ein comment
 
 def main():
     path = "/home/luna/Documents/Workspace/Github/BirdofMinerva/bookbot/books/frankenstein.txt"
