@@ -1,22 +1,31 @@
-#das ist ein comment
-
 def main():
-    path = "/home/luna/Documents/Code/Github/bookbot/books/frankenstein.txt" 
+    path = "/home/luna/Documents/Code/Github/bookbot/books/frankenstein.txt"
 
-
-    with open(path, "r") as book:
-        read = book.read()
-        lowread = read.lower()
+    def return_lower() -> dict:
+        with open(path, "r") as book:
+            read = book.read()
+        lower_read = read.lower()
         dic = {}
-        
-        for i in lowread:
+
+        for i in lower_read:
             if i not in dic:
-                dic.update({i:1})
+                dic[i] = 1
             else:
                 dic[i] += 1
 
-        print(dic)
+        return dic
 
+    def sort_dic(dic: dict):
+        dic_list = []
+        for key, value in dic.items():
+            dic_list.append({'key': key, 'value': value})
+
+        dic_list.sort(reverse=True, key=lambda x: x['value'])
+
+        for item in dic_list:
+            print(f"The '{item['key']}' character was found '{item['value']}' times")
+
+    sort_dic(return_lower())
 
 main()
 
