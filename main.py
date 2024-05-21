@@ -23,7 +23,8 @@ def main():
         dic_list.sort(reverse=True, key=lambda x: x['value'])
 
         for item in dic_list:
-            print(f"The '{item['key']}' character was found '{item['value']}' times")
+            if item['key'] not in ['\n', ' ']:
+                print(f"The '{item['key']}' character was found '{item['value']}' times")
 
     sort_dic(return_lower())
 
