@@ -1,18 +1,22 @@
 #das ist ein comment
 
 def main():
-    path = "/home/luna/Documents/Workspace/Github/BirdofMinerva/bookbot/books/frankenstein.txt"
+    path = "/home/luna/Documents/Code/Github/bookbot/books/frankenstein.txt" 
 
 
     with open(path, "r") as book:
         read = book.read()
         lowread = read.lower()
-        dic = {
-            
-            "a": 0,
-            "b": 0,
-            "c": 0,
-        }
+        dic = {}
+        
+        for i in lowread:
+            if i not in dic:
+                dic.update({i:1})
+            else:
+                dic[i] += 1
+
+        print(dic)
+
 
 main()
 
